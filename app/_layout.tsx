@@ -1,47 +1,57 @@
-
+import Ss from '@/components/splash-screen';
 import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
+	DarkTheme,
+	DefaultTheme,
+	ThemeProvider,
 } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import 'react-native-reanimated';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+	const colorScheme = useColorScheme();
+	const [showRoute, setShowRoute] = useState(false);
+	const [animationEnd, setAnimationEnd] = useState(false);
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+	const [loaded] = useFonts({
+		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+	});
 
-  if (!loaded) {
-    return null;
-  }
+	useEffect(() => {
+		if (loaded) {
+			console.log(' font loaded');
+		}
+		if (animationEnd) {
+			console.log('animation ended');
+		}
+	}, [loaded, animationEnd]);
 
-  return (
-    <ThemeProvider
-      value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider
+			value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+			{loaded && animationEnd ? (
+				<>
+					<Stack>
+						<Stack.Screen
+							name="(tabs)"
+							options={{ headerShown: false }}
+						/>
+						<Stack.Screen name="+not-found" />
+					</Stack>
+					<StatusBar style="auto" />
+				</>
+			) : (
+				<>
+					<Ss isAnimationEnded={setAnimationEnd} />
+					<StatusBar
+						style="auto"
+						hidden={true}
+					/>
+				</>
+			)}
+		</ThemeProvider>
+	);
 }
