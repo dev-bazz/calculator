@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const textPadStyle = (theme: Theme) =>
 	StyleSheet.create({
 		section: {
-			flex: 1.5,
+			flex: 1.3,
 			paddingInline: normalize(40),
 			backgroundColor: theme.colors.card,
 			paddingTop: normalize(48),
