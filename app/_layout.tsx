@@ -7,6 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import 'react-native-reanimated';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
 	const colorScheme = useColorScheme();
@@ -31,14 +32,16 @@ export default function RootLayout() {
 			value={colorScheme === 'dark' ? darkTheme : lightTheme}>
 			{loaded && animationEnd ? (
 				<>
-					<Stack>
-						<Stack.Screen
-							name="(tabs)"
-							options={{ headerShown: false }}
-						/>
-						<Stack.Screen name="+not-found" />
-					</Stack>
-					<StatusBar style="auto" />
+					<SafeAreaProvider>
+						<Stack>
+							<Stack.Screen
+								name="(tabs)"
+								options={{ headerShown: false }}
+							/>
+							<Stack.Screen name="+not-found" />
+						</Stack>
+						<StatusBar style="auto" />
+					</SafeAreaProvider>
 				</>
 			) : (
 				<>
