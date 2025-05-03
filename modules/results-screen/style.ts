@@ -11,5 +11,9 @@ export const ResultStyle = (theme: Theme, paddingTop: number) => {
 			alignItems: 'flex-end',
 			paddingBottom: normalize(20),
 		},
+		displayText: {
+			fontSize: normalize(32),
+			color: theme.colors.text,
+		},
 	});
 };

@@ -16,6 +16,8 @@ export default function RootLayout() {
 
 	const [loaded] = useFonts({
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+		ArimoRegular: require('@/assets/fonts/static/Arimo-Regular.ttf'),
+		ArimoBold: require('@/assets/fonts/static/Arimo-Bold.ttf'),
 	});
 
 	useEffect(() => {

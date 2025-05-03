@@ -52,7 +52,7 @@ export const darkTheme: CustomTheme = {
 	},
 	fonts: {
 		regular: {
-			fontFamily: 'System',
+			fontFamily: 'ArimoRegular',
 			fontWeight: 'normal',
 		},
 		medium: {
@@ -60,7 +60,7 @@ export const darkTheme: CustomTheme = {
 			fontWeight: 'normal',
 		},
 		bold: {
-			fontFamily: 'System',
+			fontFamily: 'ArimoBold',
 			fontWeight: 'bold',
 		},
 		heavy: {
