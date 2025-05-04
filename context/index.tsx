@@ -18,7 +18,7 @@ const AppContext = createContext<Props | null>(null);
 
 export function AppContextProvider({ children }: PropsWithChildren) {
 	const [result, setResult] = useState(
-		`${calculateExpression('300 + 0')}`,
+		`${calculateExpression('0')}`,
 	);
 	const [prevResult, setPrevResult] = useState('');
 	return (

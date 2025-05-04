@@ -9,6 +9,8 @@ import addDark from '@/assets/images/command-icon/plusDark.svg';
 import minusDark from '@/assets/images/command-icon/minusDark.svg';
 import multiplyDark from '@/assets/images/command-icon/multiplyDark.svg';
 import dividDark from '@/assets/images/command-icon/dividDark.svg';
+import backArrowDark from '@/assets/images/command-icon/back-arrow-dark.svg';
+import backArrowLight from '@/assets/images/command-icon/back-arrow.svg';
 export const commandIcon = {
 	light: {
 		module: moduleLight,
@@ -16,6 +18,7 @@ export const commandIcon = {
 		minus: minusLight,
 		multiply: multiplyLight,
 		divide: dividLight,
+		backArrow: backArrowLight,
 	},
 	dark: {
 		module: moduleDark,
@@ -23,5 +26,6 @@ export const commandIcon = {
 		minus: minusDark,
 		multiply: multiplyDark,
 		divide: dividDark,
+		backArrow: backArrowDark,
 	},
 };
