@@ -6,6 +6,7 @@ import {
 	type PropsWithChildren,
 	type SetStateAction,
 } from 'react';
+import { calculateExpression } from './parse';
 
 interface Props {
 	result: string;
@@ -16,8 +17,10 @@ interface Props {
 const AppContext = createContext<Props | null>(null);
 
 export function AppContextProvider({ children }: PropsWithChildren) {
-	const [result, setResult] = useState('0');
-	const [prevResult, setPrevResult] = useState('hhh');
+	const [result, setResult] = useState(
+		`${calculateExpression('300 + 0')}`,
+	);
+	const [prevResult, setPrevResult] = useState('');
 	return (
 		<AppContext.Provider
 			value={{ result, setResult, prevResult, setPrevResult }}>

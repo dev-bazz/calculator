@@ -7,7 +7,7 @@ export const textPadStyle = (theme: Theme) =>
 			flex: 2,
 			paddingInline: normalize(40),
 			backgroundColor: theme.colors.card,
-			paddingTop: normalize(48),
+
 			borderTopRightRadius: normalize(20),
 			borderTopLeftRadius: normalize(20),
 		},
