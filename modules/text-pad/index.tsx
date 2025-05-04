@@ -1,5 +1,5 @@
 import { useTheme } from '@react-navigation/native';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { textPadStyle } from './style';
 import ToggleComponent from '../theme-toggle';
 
@@ -8,8 +8,9 @@ const TextPad = () => {
 	const { section, text } = textPadStyle(theme);
 	return (
 		<View style={section}>
-			<Text style={text}>KEYBOAR</Text>
-			<ToggleComponent />
+			<View style={{ flexDirection: 'row' }}>
+				<ToggleComponent />
+			</View>
 		</View>
 	);
 };

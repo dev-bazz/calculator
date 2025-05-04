@@ -41,7 +41,7 @@ export const lightTheme: CustomTheme = {
 };
 
 export const darkTheme: CustomTheme = {
-	dark: false,
+	dark: true,
 	colors: {
 		primary: themeColors.dark.text,
 		background: themeColors.dark.background,

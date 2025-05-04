@@ -1,7 +1,12 @@
 import { normalize } from '@/constant/responsive';
 import type { Theme } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
-export const ResultStyle = (theme: Theme, paddingTop: number) => {
+export const ResultStyle = (
+	theme: Theme,
+	paddingTop: number,
+	fontSize: number,
+	prevFont: number,
+) => {
 	return StyleSheet.create({
 		screen: {
 			flex: 1,
@@ -12,8 +17,12 @@ export const ResultStyle = (theme: Theme, paddingTop: number) => {
 			paddingBottom: normalize(20),
 		},
 		displayText: {
-			fontSize: normalize(32),
+			fontSize: normalize(fontSize),
 			color: theme.colors.text,
+		},
+		prevText: {
+			color: theme.dark ? '#CCCDD7' : '#637381',
+			fontSize: normalize(prevFont),
 		},
 	});
 };

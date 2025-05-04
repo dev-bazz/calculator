@@ -1,5 +1,6 @@
 import Ss from '@/components/splash-screen';
 import { darkTheme, lightTheme } from '@/constant/theme';
+import { AppContextProvider } from '@/context';
 import { ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -35,13 +36,15 @@ export default function RootLayout() {
 			{loaded && animationEnd ? (
 				<>
 					<SafeAreaProvider>
-						<Stack>
-							<Stack.Screen
-								name="(tabs)"
-								options={{ headerShown: false }}
-							/>
-							<Stack.Screen name="+not-found" />
-						</Stack>
+						<AppContextProvider>
+							<Stack>
+								<Stack.Screen
+									name="(tabs)"
+									options={{ headerShown: false }}
+								/>
+								<Stack.Screen name="+not-found" />
+							</Stack>
+						</AppContextProvider>
 						<StatusBar style="auto" />
 					</SafeAreaProvider>
 				</>
