@@ -21,7 +21,7 @@ const TextPad = () => {
 		iconName: string;
 		command?: '+' | '-' | '*' | '/' | '%';
 		number?: number;
-		special?: '=' | 'AC' | '.';
+		special?: '=' | 'AC' | '.' | '<';
 	}[] = [
 		{ type: 'none', iconName: '' },
 		{ type: 'command', iconName: 'divide', command: '/' },
@@ -40,8 +40,10 @@ const TextPad = () => {
 		{ type: 'number', number: 3, iconName: 'number 7' },
 		{ type: 'number', number: 0, iconName: 'number 7' },
 		{ type: 'special', iconName: 'number 7', special: 'AC' },
-		{ type: 'special', iconName: 'number 7', special: '=' },
+		{ type: 'special', iconName: 'number 7', special: '<' },
+
 		{ type: 'special', iconName: 'number 7', special: '.' },
+		{ type: 'special', iconName: 'number 7', special: '=' },
 	];
 	return (
 		<View style={section}>
@@ -74,7 +76,7 @@ const TextPad = () => {
 					}
 					if (data.item.type === 'command' && data.item.command) {
 						return (
-							<ButtonCommandComp>
+							<ButtonCommandComp command={data.item.command}>
 								<Image
 									source={
 										icons[
