@@ -10,7 +10,7 @@ export default function SplashScreen(prop: {
 	return (
 		<Rive
 			ref={riveRef}
-			resourceName="calcSplash"
+			resourceName="calcsplash"
 			autoplay
 			fit={Fit.Cover}
 			style={{ width: '100%', height: '100%' }}
